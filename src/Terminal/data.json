@@ -1,0 +1,18 @@
+{
+  "errors": [
+    "buu", "foo", "baaad", "really?"
+  ],
+  "success": [
+    "wow", "great", "cool"
+  ],
+  "cards": [
+    {
+      "tags": ["about", "me", "cv"],
+      "msg": "You can check my Linkedin profile: http://linkedin.com/flacoloco"
+    },
+    {
+      "tags": ["about", "me", "cv", "download"],
+      "msg": "You can download my cv here"
+    }
+  ]
+}

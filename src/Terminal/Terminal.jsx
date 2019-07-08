@@ -1,10 +1,17 @@
-import React, { Fragment, memo, useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
+
+import { Container, Console, Header } from './Terminal.styles'
 
 import data from './data.json'
 
 const getRandomError = () => {
   const index = 3
   return { msg: data.errors[index] }
+}
+
+const getRandomSuccess = () => {
+  const index = 1
+  return { msg: data.success[index] }
 }
 
 function Terminal() {
@@ -22,6 +29,8 @@ function Terminal() {
       console.log('error', error)
       respNew.push(error)
     } else {
+      const success = getRandomSuccess()
+      respNew.push(success)
       found.forEach(f => respNew.push(f))
     }
     console.log('respNew', respNew)
@@ -33,15 +42,15 @@ function Terminal() {
   }
 
   return (
-    <Fragment>
-      <h1>Terminal</h1>
-      <input ref={inputRef} type="text" onKeyDown={keyDownHandler} />
-      <ul>
+    <Container>
+      <Header>header</Header>
+      <Console>
         {resp.map((r, i) => (
           <li key={i}>{r.msg}</li>
         ))}
-      </ul>
-    </Fragment>
+      </Console>
+      <input ref={inputRef} type="text" onKeyDown={keyDownHandler} />
+    </Container>
   )
 }
 

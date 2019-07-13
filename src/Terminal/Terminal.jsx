@@ -5,9 +5,10 @@ import {
   Console,
   ConsoleWrapper,
   ExternalLink,
+  Error,
   Header,
-  Input,
   Line,
+  Success
 } from './Terminal.styles'
 
 import data from './data.json'
@@ -16,12 +17,12 @@ const randomIndex = max => Math.floor(Math.random() * max)
 
 const getRandomError = () => {
   const index = randomIndex(data.errors.length)
-  return { msg: data.errors[index] }
+  return { error: data.errors[index] }
 }
 
 const getRandomSuccess = () => {
   const index = randomIndex(data.success.length)
-  return { msg: data.success[index] }
+  return { success: data.success[index] }
 }
 
 const Path = () => <span>flaco ></span>
@@ -64,6 +65,18 @@ function Terminal() {
             <li key={i}>
               <Line>
                 {r.path && <Path />}
+                {r.error
+                && (
+                  <Error>
+                    {r.error}
+                  </Error>
+                )}
+                {r.success
+                && (
+                  <Success>
+                    {r.success}
+                  </Success>
+                )}
                 {r.msg}
                 {r.link
                 && (

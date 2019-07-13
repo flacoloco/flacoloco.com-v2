@@ -17,26 +17,36 @@ export const Container = styled.div`
   height: 100vh;
 `
 export const ConsoleWrapper = styled.div`
+  position: relative;
   width: 640px;
   height: 180px;
   background-color: ${darkBlue};
   overflow: auto;
   border-radius: 4px;
+  padding-bottom: 8px;
 `
 export const Console = styled.ul`
   color: ${gray};
   height: auto;
+  padding-top: 30px;
+`
+
+export const Error = styled.span`
+  color: ${red};
 `
 
 export const ExternalLink = styled.div`
+  padding-left: 8px;
   & a:link {
     color: ${lightGray}
   }
 `
 
 export const Header = styled.div`
+  position: fixed;
   background-color: ${lightGray};
   padding: 4px 8px;
+  width: 640px;
 `
 export const Input = styled.div`
   display: flex;
@@ -46,4 +56,7 @@ export const Line = styled.div`
   align-items: center;
   height: 25px;
   padding: 0 8px;
+`
+export const Success = styled.span`
+  color: ${green};
 `

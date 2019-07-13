@@ -7,6 +7,7 @@ import {
   ExternalLink,
   Header,
   Input,
+  Line,
 } from './Terminal.styles'
 
 import data from './data.json'
@@ -56,25 +57,28 @@ function Terminal() {
   return (
     <Container>
       <ConsoleWrapper>
-        <Header>header</Header>
+        <Header>1: flacoloco.com: /personal/website</Header>
         <Console>
+          <Line>Last login: Sat Jul 13 21:18:57 on ttys006</Line>
           {resp.map((r, i) => (
             <li key={i}>
-              {r.path && <Path />}
-              {r.msg}
-              {r.link
-              && (
-                <ExternalLink>
-                  <a href={r.link} rel="noopener noreferrer" target="_blank">{r.link}</a>
-                </ExternalLink>
-              )}
+              <Line>
+                {r.path && <Path />}
+                {r.msg}
+                {r.link
+                && (
+                  <ExternalLink>
+                    <a href={r.link} rel="noopener noreferrer" target="_blank">{r.link}</a>
+                  </ExternalLink>
+                )}
+              </Line>
             </li>
           ))}
         </Console>
-        <Input>
+        <Line>
           <Path />
           <input ref={inputRef} type="text" onKeyDown={keyDownHandler} />
-        </Input>
+        </Line>
       </ConsoleWrapper>
     </Container>
   )

@@ -13,12 +13,15 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #000;
+  width: 100vw;
+  height: 100vh;
 `
 export const ConsoleWrapper = styled.div`
   width: 640px;
   height: 180px;
   background-color: ${darkBlue};
   overflow: auto;
+  border-radius: 4px;
 `
 export const Console = styled.ul`
   color: ${gray};
@@ -33,7 +36,14 @@ export const ExternalLink = styled.div`
 
 export const Header = styled.div`
   background-color: ${lightGray};
+  padding: 4px 8px;
 `
 export const Input = styled.div`
   display: flex;
+`
+export const Line = styled.div`
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding: 0 8px;
 `

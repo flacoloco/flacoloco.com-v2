@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 
 import {
   Container,
@@ -8,7 +8,7 @@ import {
   Error,
   Header,
   Line,
-  Success
+  Success,
 } from './Terminal.styles'
 
 import data from './data.json'
@@ -30,7 +30,11 @@ const Path = () => <span>flaco ></span>
 function Terminal() {
   const [resp, setResp] = useState([])
   const inputRef = useRef()
+  const consoleRef = useRef()
 
+  useEffect(() => {
+    consoleRef.current.scrollTop = consoleRef.current.scrollHeight
+  }, [resp])
 
   const findCard = () => {
     const respNew = [...resp]
@@ -57,7 +61,7 @@ function Terminal() {
   console.log('resp', resp);
   return (
     <Container>
-      <ConsoleWrapper>
+      <ConsoleWrapper ref={consoleRef}>
         <Header>1: flacoloco.com: /personal/website</Header>
         <Console>
           <Line>Last login: Sat Jul 13 21:18:57 on ttys006</Line>

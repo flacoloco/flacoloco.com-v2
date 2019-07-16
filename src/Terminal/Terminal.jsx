@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
+import moment from 'moment'
 
 import {
   Container,
@@ -12,6 +13,7 @@ import {
 } from './Terminal.styles'
 
 import data from './data.json'
+
 
 const randomIndex = max => Math.floor(Math.random() * max)
 
@@ -31,6 +33,10 @@ function Terminal() {
   const [resp, setResp] = useState([])
   const inputRef = useRef()
   const consoleRef = useRef()
+  const dateToFormat = '1976-04-19T12:59-0500'
+  moment.locale('en-GB');
+  const today = moment().format('llll')
+
 
   useEffect(() => {
     consoleRef.current.scrollTop = consoleRef.current.scrollHeight
@@ -58,13 +64,13 @@ function Terminal() {
       inputRef.current.value = ''
     }
   }
-  console.log('resp', resp);
+  console.log('resp', resp)
   return (
     <Container>
       <ConsoleWrapper ref={consoleRef}>
         <Header>1: flacoloco.com: /personal/website</Header>
         <Console>
-          <Line>Last login: Sat Jul 13 21:18:57 on ttys006</Line>
+          <Line>{`Last login: ${today} on ttys000`}</Line>
           {resp.map((r, i) => (
             <li key={i}>
               <Line>

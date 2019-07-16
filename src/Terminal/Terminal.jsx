@@ -9,11 +9,20 @@ import {
   Error,
   Header,
   Line,
+  PathBody,
+  PathContainer,
+  PathTriangle,
   Success,
 } from './Terminal.styles'
 
 import data from './data.json'
 
+const Path = () => (
+  <PathContainer>
+    <PathBody>~/flacoloco.com/v2</PathBody>
+    <PathTriangle />
+  </PathContainer>
+)
 
 const randomIndex = max => Math.floor(Math.random() * max)
 
@@ -27,14 +36,11 @@ const getRandomSuccess = () => {
   return { success: data.success[index] }
 }
 
-const Path = () => <span>flaco ></span>
-
 function Terminal() {
   const [resp, setResp] = useState([])
   const inputRef = useRef()
   const consoleRef = useRef()
-  const dateToFormat = '1976-04-19T12:59-0500'
-  moment.locale('en-GB');
+  moment.locale('en-GB')
   const today = moment().format('llll')
 
 
@@ -64,7 +70,7 @@ function Terminal() {
       inputRef.current.value = ''
     }
   }
-  console.log('resp', resp)
+
   return (
     <Container>
       <ConsoleWrapper ref={consoleRef}>

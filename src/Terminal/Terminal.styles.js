@@ -56,7 +56,38 @@ export const Line = styled.div`
   align-items: center;
   height: 25px;
   padding: 0 8px;
+
+  & input {
+    border: 0;
+    background-color: transparent;
+    flex-basis: 100%;
+    color: ${lightGray};
+    outline: 0;
+    font-size: 16px;
+  }
 `
+export const PathContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const PathBody = styled.div`
+  background-color: ${blue};
+  color: ${lightGray};
+  width: 140px;
+  padding: 0 4px;
+`
+
+export const PathTriangle = styled.div`
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent ${blue};
+    margin-right: 8px;
+  }
+`
+
 export const Success = styled.span`
   color: ${green};
 `

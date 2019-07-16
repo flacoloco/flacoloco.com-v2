@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const ConsoleWrapper = styled.div`
   position: relative;
   width: 640px;
-  height: 180px;
+  height: 480px;
   background-color: ${darkBlue};
   overflow: auto;
   border-radius: 4px;

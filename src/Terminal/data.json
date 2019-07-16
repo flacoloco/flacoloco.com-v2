@@ -1,9 +1,9 @@
 {
   "errors": [
-    "buu", "foo", "baaad", "really?"
+    "nope!", "wrong!", "baaad!", "really?","try it again!"
   ],
   "success": [
-    "wow!", "great!", "cool!"
+    "cool!","nice!","well done!","superb!","yep!"
   ],
   "cards": [
     {

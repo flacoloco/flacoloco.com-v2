@@ -4,7 +4,6 @@ const darkBlue = '#0D2B36'
 const blue = '#438BCC'
 const red = '#EE6A5F'
 const green = '#62C554'
-const yellow = '#F7C251'
 const lightGray = '#D7D7D6'
 const gray = '#95A0A1'
 
@@ -18,9 +17,9 @@ export const Container = styled.div`
 `
 export const ConsoleWrapper = styled.div`
   position: relative;
-  width: 640px;
-  height: 480px;
-  background-color: ${darkBlue};
+  width: 100%;
+  height: 100%;
+  background-color: #000;
   overflow: auto;
   border-radius: 4px;
   padding-bottom: 8px;
@@ -37,23 +36,23 @@ export const Error = styled.span`
 
 export const ExternalLink = styled.div`
   padding-left: 8px;
-  & a:link {
+  & a {
     color: ${lightGray}
   }
 `
 
 export const Header = styled.div`
   position: fixed;
-  background-color: ${lightGray};
+  background-color: ${gray};
   padding: 4px 8px;
-  width: 640px;
+  width: 100%;
 `
 export const Input = styled.div`
   display: flex;
 `
 export const Line = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   height: 25px;
   padding: 0 8px;
 
@@ -61,9 +60,9 @@ export const Line = styled.div`
     border: 0;
     background-color: transparent;
     flex-basis: 100%;
-    color: ${lightGray};
+    color: ${gray};
     outline: 0;
-    font-size: 16px;
+    font-size: 18px;
   }
 `
 export const PathContainer = styled.div`
@@ -74,7 +73,7 @@ export const PathContainer = styled.div`
 export const PathBody = styled.div`
   background-color: ${blue};
   color: ${lightGray};
-  width: 140px;
+  width: 150px;
   padding: 0 4px;
 `
 

@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import moment from 'moment'
+import uuidv4 from 'uuid/v4'
 
 import {
   Container,
@@ -43,6 +44,9 @@ function Terminal() {
   moment.locale('en-GB')
   const today = moment().format('llll')
 
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   useEffect(() => {
     consoleRef.current.scrollTop = consoleRef.current.scrollHeight
@@ -52,7 +56,7 @@ function Terminal() {
     const respNew = [...resp]
     const { current: { value } } = inputRef
     respNew.push({ path: true, msg: value })
-    const found = data.cards.filter(c => c.tags.includes(value))
+    const found = data.cards.filter(c => c.tags.includes(value.toLowerCase()))
     if (!found.length) {
       const error = getRandomError()
       respNew.push(error)
@@ -64,11 +68,20 @@ function Terminal() {
     setResp(respNew)
   }
 
+  const cleanScreen = () => {
+    setResp([])
+  }
+
   const keyDownHandler = (e) => {
     if (e.key === 'Enter') {
-      findCard()
+      if (inputRef.current.value === 'clean' || inputRef.current.value === 'clear') {
+        cleanScreen()
+      } else {
+        findCard()
+      }
       inputRef.current.value = ''
     }
+
   }
 
   return (
@@ -77,8 +90,8 @@ function Terminal() {
         <Header>1: flacoloco.com: /personal/website</Header>
         <Console>
           <Line>{`Last login: ${today} on ttys000`}</Line>
-          {resp.map((r, i) => (
-            <li key={i}>
+          {resp.map(r => (
+            <li key={uuidv4()}>
               <Line>
                 {r.path && <Path />}
                 {r.error
@@ -94,6 +107,15 @@ function Terminal() {
                   </Success>
                 )}
                 {r.msg}
+                {r.picture
+                && (
+                  <>
+                    <span>&nbsp;&nbsp;</span>
+                    <a href={r.picture.src} target="blank"><img alt={r.picture.alt} src={r.picture.src} width={r.picture.width} /></a>
+                    <br />
+                    <br />
+                  </>
+                )}
                 {r.link
                 && (
                   <ExternalLink>

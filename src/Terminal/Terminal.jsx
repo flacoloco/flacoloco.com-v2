@@ -1,4 +1,9 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, {
+  memo,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import moment from 'moment'
 import uuidv4 from 'uuid/v4'
 
@@ -41,12 +46,13 @@ function Terminal() {
   const [resp, setResp] = useState([])
   const inputRef = useRef()
   const consoleRef = useRef()
+
   moment.locale('en-GB')
   const today = moment().format('llll')
 
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
+  const onClickOutside = () => inputRef.current.focus()
+
+  useEffect(onClickOutside, [])
 
   useEffect(() => {
     consoleRef.current.scrollTop = consoleRef.current.scrollHeight
@@ -111,7 +117,9 @@ function Terminal() {
                 && (
                   <>
                     <span>&nbsp;&nbsp;</span>
-                    <a href={r.picture.src} target="blank"><img alt={r.picture.alt} src={r.picture.src} width={r.picture.width} /></a>
+                    <a href={r.picture.link} target="blank">
+                      <img alt={r.picture.alt} src={r.picture.src} width={r.picture.width} />
+                    </a>
                     <br />
                     <br />
                   </>
@@ -128,7 +136,7 @@ function Terminal() {
         </Console>
         <Line>
           <Path />
-          <input ref={inputRef} type="text" onKeyDown={keyDownHandler} />
+          <input ref={inputRef} type="text" onKeyDown={keyDownHandler} onBlur={onClickOutside} />
         </Line>
       </ConsoleWrapper>
     </Container>

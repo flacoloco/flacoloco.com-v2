@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: ${darkBlue};
   width: 100vw;
   height: 100vh;
 `
@@ -19,7 +19,7 @@ export const ConsoleWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: ${darkBlue};
   overflow: auto;
   border-radius: 4px;
   padding-bottom: 8px;
@@ -72,19 +72,18 @@ export const PathContainer = styled.div`
 
 export const PathBody = styled.div`
   background-color: ${blue};
-  color: ${lightGray};
+  color: ${darkBlue};
   width: 150px;
   padding: 0 4px;
 `
 
 export const PathTriangle = styled.div`
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent ${blue};
-    margin-right: 8px;
-  }
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent ${blue};
+  margin-right: 8px;
 `
 
 export const Success = styled.span`

@@ -6,7 +6,10 @@
     "really?",
     "try it again!",
     "not found!",
-    "nothing to see here!"
+    "nothing to see here!",
+    "you can do it better!",
+    "one more time!",
+    "ups!"
   ],
   "success": [
     "cool!",
@@ -15,11 +18,13 @@
     "superb!",
     "yep!",
     "fantastic!",
-    "amazing"
+    "amazing",
+    "marvelous",
+    "super!"
   ],
   "cards": [
     {
-      "tags": ["about", "cv", "curriculum", "bio", "linkedin"],
+      "tags": ["about", "cv", "curriculum", "bio", "linkedin", "contact"],
       "msg": "You can check my Linkedin profile:",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
@@ -29,17 +34,17 @@
       "link": "http://flacoloco.com/alejandro_vasquez_cv.pdf"
     },
     {
-      "tags": ["react", "react js"],
+      "tags": ["react", "react js", "reactjs"],
       "msg": "Fully dedicated since 2017",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
     {
-      "tags": ["javascript", "js", "css", "html"],
+      "tags": ["javascript", "js", "css", "html", "frontend", "fe", "developer"],
       "msg": "From the very beggining...",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
     {
-      "tags": ["skills"],
+      "tags": ["skills", "knowledge"],
       "msg": "react, javascript, styled-components, storybook, ... More info in:",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
@@ -48,7 +53,8 @@
       "msg": "This is me:",
       "picture": {
         "alt": "my picture",
-        "src": "https://media.licdn.com/dms/image/C5603AQH_qTDr5mAx_A/profile-displayphoto-shrink_200_200/0?e=1576108800&v=beta&t=MkpnP7wDhPK9M5nEaWVn93ctSsEQZuQAAATlEW8AF2c",
+        "link": "http://flacoloco.com/about",
+        "src": "http://flacoloco.com/images/perfilbw.jpg",
         "width": "40px"
       }
     }

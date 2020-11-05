@@ -24,12 +24,12 @@
   ],
   "cards": [
     {
-      "tags": ["about", "cv", "curriculum", "bio", "linkedin", "contact"],
+      "tags": ["about", "cv", "curriculum", "bio", "linkedin", "contact", "experience"],
       "msg": "You can check my Linkedin profile:",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
     {
-      "tags": ["about", "cv", "download", "curriculum", "bio"],
+      "tags": ["about", "cv", "download", "curriculum", "bio", "experience"],
       "msg": "You can download my cv:",
       "link": "http://flacoloco.com/alejandro_vasquez_cv.pdf"
     },
@@ -44,7 +44,7 @@
       "link": "https://www.linkedin.com/in/flacoloco/"
     },
     {
-      "tags": ["skills", "knowledge"],
+      "tags": ["skills", "knowledge", "experience"],
       "msg": "react, javascript, styled-components, storybook, ... More info in:",
       "link": "https://www.linkedin.com/in/flacoloco/"
     },

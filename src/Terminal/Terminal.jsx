@@ -4,7 +4,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import moment from 'moment'
+import { DateTime, Settings } from 'luxon'
 import uuidv4 from 'uuid/v4'
 
 import {
@@ -23,6 +23,7 @@ import {
 
 import data from './data.json'
 
+Settings.defaultLocale = 'us'
 const Path = () => (
   <PathContainer>
     <PathBody>~/flacoloco.com/v2</PathBody>
@@ -47,9 +48,17 @@ function Terminal() {
   const inputRef = useRef()
   const consoleRef = useRef()
 
-  moment.locale('en-GB')
-  const today = moment().format('llll')
-
+  const f = {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  }
+  const dt = DateTime.local()
+  dt.setZone('Europe/London')
+  const today = dt.toLocaleString(f)
   const onClickOutside = () => inputRef.current.focus()
 
   useEffect(onClickOutside, [])

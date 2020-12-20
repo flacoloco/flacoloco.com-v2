@@ -4,6 +4,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import PropTypes from 'prop-types'
 import { DateTime, Settings } from 'luxon'
 import uuidv4 from 'uuid/v4'
 
@@ -21,8 +22,6 @@ import {
   Success,
 } from './Terminal.styles'
 
-import data from './data.json'
-
 Settings.defaultLocale = 'us'
 const Path = () => (
   <PathContainer>
@@ -33,22 +32,22 @@ const Path = () => (
 
 const randomIndex = max => Math.floor(Math.random() * max)
 
-const getRandomError = () => {
+const getRandomError = (data) => {
   const index = randomIndex(data.errors.length)
   return { error: data.errors[index] }
 }
 
-const getRandomSuccess = () => {
+const getRandomSuccess = (data) => {
   const index = randomIndex(data.success.length)
   return { success: data.success[index] }
 }
 
-function Terminal() {
+function Terminal({ data }) {
   const [resp, setResp] = useState([])
   const inputRef = useRef()
   const consoleRef = useRef()
 
-  const f = {
+  const format = {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
@@ -58,7 +57,7 @@ function Terminal() {
   }
   const dt = DateTime.local()
   dt.setZone('Europe/London')
-  const today = dt.toLocaleString(f)
+  const today = dt.toLocaleString(format)
   const onClickOutside = () => inputRef.current.focus()
 
   useEffect(onClickOutside, [])
@@ -73,10 +72,10 @@ function Terminal() {
     respNew.push({ path: true, msg: value })
     const found = data.cards.filter(c => c.tags.includes(value.toLowerCase()))
     if (!found.length) {
-      const error = getRandomError()
+      const error = getRandomError(data)
       respNew.push(error)
     } else {
-      const success = getRandomSuccess()
+      const success = getRandomSuccess(data)
       respNew.push(success)
       found.forEach(f => respNew.push(f))
     }
@@ -96,7 +95,6 @@ function Terminal() {
       }
       inputRef.current.value = ''
     }
-
   }
 
   return (
@@ -150,6 +148,18 @@ function Terminal() {
       </ConsoleWrapper>
     </Container>
   )
+}
+
+Terminal.propTypes = {
+  data: PropTypes.shape({
+    errors: PropTypes.array,
+    success: PropTypes.array,
+    cards: PropTypes.array,
+  }),
+}
+
+Terminal.defaultProps = {
+  data: {},
 }
 
 export default memo(Terminal)
